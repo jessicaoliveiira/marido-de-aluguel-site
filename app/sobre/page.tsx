@@ -79,13 +79,10 @@ export default function SobrePage() {
               <div className="aspect-[4/5] rounded-3xl overflow-hidden relative flex items-center justify-center bg-gradient-to-br from-brand-blue to-brand-blue-dark">
                 <div className="flex flex-col items-center justify-center">
                   <div className="w-28 h-28 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                    <span className="text-5xl font-bold text-white">CS</span>
+                    <span className="text-5xl font-bold text-white">DO</span>
                   </div>
                   <p className="text-white font-bold text-xl">Davi Oliveira</p>
                   <p className="text-blue-200 text-sm">Marido de Aluguel</p>
-                  <p className="text-blue-300 text-xs mt-2 px-6 text-center">
-                    Substitua por uma foto real para aumentar a conversão
-                  </p>
                 </div>
               </div>
               {/* Badge */}
