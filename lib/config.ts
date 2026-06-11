@@ -4,6 +4,7 @@ export const siteConfig = {
   state: 'SP',
   phone: '5511943135297', // número WhatsApp sem + e sem espaços
   phoneFormatted: '(11) 94313-5297',
+  email: 'contato@maridodealuguel.com.br',
   address: 'São Paulo, SP – Atendemos toda a região',
   instagram: 'https://instagram.com/maridodealuguel',
   facebook: 'https://facebook.com/maridodealuguel',
