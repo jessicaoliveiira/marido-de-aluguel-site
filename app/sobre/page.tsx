@@ -147,7 +147,7 @@ export default function SobrePage() {
                 aria-label="Entrar em contato pelo WhatsApp"
               >
                 <WhatsAppIcon className="w-5 h-5" />
-                Falar com o Carlos
+                Falar com o Davi
               </a>
             </div>
           </div>
