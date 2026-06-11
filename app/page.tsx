@@ -64,7 +64,7 @@ const differentials = [
   {
     icon: ShieldCheck,
     title: 'Profissional de Confiança',
-    description: 'Mais de 10 anos de experiência. Serviços com garantia e profissional identificado.',
+    description: 'Mais de 5 anos de experiência. Serviços com garantia e profissional identificado.',
     color: 'bg-purple-50 text-purple-600'
   },
   {
@@ -212,7 +212,7 @@ export default function HomePage() {
               Por Que Nos Escolher?
             </h2>
             <p className="section-subtitle mx-auto">
-              Mais de 10 anos de experiência em {siteConfig.city} com centenas de clientes satisfeitos.
+              Mais de 5 anos de experiência em {siteConfig.city} com centenas de clientes satisfeitos.
             </p>
           </div>
 

@@ -5,7 +5,7 @@ import { siteConfig, whatsappLink } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: `Sobre | Marido de Aluguel em ${siteConfig.city}`,
-  description: `Conheça o profissional por trás do Marido de Aluguel em ${siteConfig.city}. Mais de 10 anos de experiência, centenas de clientes satisfeitos e garantia em todos os serviços.`,
+  description: `Conheça o profissional por trás do Marido de Aluguel em ${siteConfig.city}. Mais de 5 anos de experiência, centenas de clientes satisfeitos e garantia em todos os serviços.`,
   alternates: {
     canonical: 'https://maridodealuguelsp.com.br/sobre'
   }
@@ -63,7 +63,7 @@ export default function SobrePage() {
             Conheça o Profissional
           </h1>
           <p className="text-lg text-blue-100 max-w-2xl">
-            Mais de 10 anos resolvendo problemas residenciais em {siteConfig.city} com dedicação, honestidade e
+            Mais de 5 anos resolvendo problemas residenciais em {siteConfig.city} com dedicação, honestidade e
             qualidade.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function SobrePage() {
                   <div className="w-28 h-28 bg-white/20 rounded-full flex items-center justify-center mb-4">
                     <span className="text-5xl font-bold text-white">CS</span>
                   </div>
-                  <p className="text-white font-bold text-xl">Carlos Silva</p>
+                  <p className="text-white font-bold text-xl">Davi Oliveira</p>
                   <p className="text-blue-200 text-sm">Marido de Aluguel</p>
                   <p className="text-blue-300 text-xs mt-2 px-6 text-center">
                     Substitua por uma foto real para aumentar a conversão
@@ -103,14 +103,14 @@ export default function SobrePage() {
             {/* Content */}
             <div>
               <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                Carlos Silva
+                Davi Oliveira
               </h2>
               <p className="text-brand-blue font-semibold mb-6">Marido de Aluguel Profissional em {siteConfig.city}</p>
 
               <div className="prose prose-gray max-w-none">
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Sou <strong>Carlos Silva</strong>, técnico em manutenção predial com mais de{' '}
-                  <strong>10 anos de experiência</strong> realizando serviços residenciais e comerciais em{' '}
+                  Sou <strong>Davi Oliveira</strong>, técnico em manutenção predial com mais de{' '}
+                  <strong>5 anos de experiência</strong> realizando serviços residenciais e comerciais em{' '}
                   {siteConfig.city} e região metropolitana.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
