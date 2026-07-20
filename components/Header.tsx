@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Wrench } from 'lucide-react';
+import { Menu, X, Phone, Droplets } from 'lucide-react';
 import { whatsappLink, siteConfig } from '@/lib/config';
 
 const navLinks = [
@@ -35,10 +35,10 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group" aria-label="Ir para página inicial">
             <div className="bg-brand-blue p-2 rounded-lg group-hover:bg-brand-blue-dark transition-colors">
-              <Wrench className="w-5 h-5 text-white" aria-hidden="true" />
+              <Droplets className="w-5 h-5 text-white" aria-hidden="true" />
             </div>
             <div>
-              <span className="font-bold text-gray-900 text-lg leading-tight block">Marido de Aluguel</span>
+              <span className="font-bold text-gray-900 text-lg leading-tight block">{siteConfig.name}</span>
               <span className="text-xs text-brand-blue font-medium leading-tight block -mt-0.5">
                 {siteConfig.city} – SP
               </span>
@@ -75,7 +75,7 @@ export default function Header() {
               className="btn-whatsapp text-sm py-2 px-4"
               aria-label="Solicitar orçamento pelo WhatsApp"
             >
-              Solicitar Orçamento
+              Pedir Orçamento
             </a>
           </div>
 

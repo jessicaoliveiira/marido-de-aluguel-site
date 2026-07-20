@@ -61,7 +61,7 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
           <h2 id="faq-title" className="section-title">
             Perguntas Frequentes
           </h2>
-          <p className="section-subtitle mx-auto">Tire suas dúvidas sobre nossos serviços de marido de aluguel</p>
+          <p className="section-subtitle mx-auto">Tire suas dúvidas sobre nossos serviços hidráulicos</p>
         </div>
         <div className="max-w-3xl mx-auto flex flex-col gap-3">
           {faqs.map((faq, index) => (

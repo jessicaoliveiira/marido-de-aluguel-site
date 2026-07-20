@@ -3,28 +3,28 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import MobileContactBar from "@/components/MobileContactBar";
 import SchemaOrg from "@/components/SchemaOrg";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://maridodealuguelsp.com.br"),
   title: {
-    default: `Marido de Aluguel em ${siteConfig.city} – Serviços Rápidos e Profissionais`,
-    template: `%s | Marido de Aluguel ${siteConfig.city}`,
+    default: `Encanador em ${siteConfig.city} – Serviços Hidráulicos`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: `Marido de Aluguel em ${siteConfig.city}. Pequenos reparos, instalação elétrica, hidráulica, montagem de móveis e pintura. Atendimento rápido, preço justo e profissional de confiança. Solicite seu orçamento!`,
+  description: `Serviços hidráulicos em ${siteConfig.city}: vazamentos, desentupimento, instalações, caixas-d’água e manutenção. Atendimento rápido e orçamento transparente.`,
   keywords: [
-    `marido de aluguel em ${siteConfig.city}`,
-    "marido de aluguel perto de mim",
-    `serviços residenciais em ${siteConfig.city}`,
-    `pequenos reparos ${siteConfig.city}`,
-    `eletricista residencial ${siteConfig.city}`,
+    `encanador em ${siteConfig.city}`,
+    `serviços hidráulicos em ${siteConfig.city}`,
+    `caça vazamentos ${siteConfig.city}`,
+    `desentupimento ${siteConfig.city}`,
+    `instalação hidráulica ${siteConfig.city}`,
     `encanador ${siteConfig.city}`,
-    `montagem de móveis ${siteConfig.city}`,
-    `pintor residencial ${siteConfig.city}`,
+    `manutenção hidráulica ${siteConfig.city}`,
   ],
-  authors: [{ name: `Marido de Aluguel ${siteConfig.city}` }],
-  creator: `Marido de Aluguel ${siteConfig.city}`,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
   robots: {
     index: true,
     follow: true,
@@ -34,22 +34,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: "https://maridodealuguelsp.com.br",
-    siteName: `Marido de Aluguel ${siteConfig.city}`,
-    title: `Marido de Aluguel em ${siteConfig.city} – Serviços Rápidos e Profissionais`,
-    description: `Serviços residenciais em ${siteConfig.city}: reparos, elétrica, hidráulica, montagem de móveis e pintura. Atendimento rápido e preço justo!`,
+    siteName: siteConfig.name,
+    title: `Encanador em ${siteConfig.city} – Serviços Hidráulicos`,
+    description: `Vazamentos, desentupimento, instalações e manutenção hidráulica em ${siteConfig.city}.`,
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `Marido de Aluguel em ${siteConfig.city}`,
+        alt: `Serviços hidráulicos em ${siteConfig.city}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Marido de Aluguel em ${siteConfig.city}`,
-    description: `Serviços residenciais rápidos e profissionais em ${siteConfig.city}. Orçamento grátis!`,
+    title: `Encanador em ${siteConfig.city}`,
+    description: `Serviços hidráulicos rápidos e profissionais em ${siteConfig.city}. Orçamento grátis!`,
     images: ["/og-image.jpg"],
   },
   alternates: {
@@ -69,11 +69,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col pb-20 md:pb-0">
         <Header />
         <main className="flex-1 pt-[68px]">{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <MobileContactBar />
       </body>
     </html>
   );

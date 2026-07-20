@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Wrench, Zap, Droplets, Armchair, PaintBucket, Wind, CheckCircle2, ArrowRight } from 'lucide-react';
-import { siteConfig, whatsappLink, services } from '@/lib/config';
+import { Wrench, Droplets, Settings, Bath, Waves, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
+import { siteConfig, whatsappLinkFor, services } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Serviços de Marido de Aluguel em ${siteConfig.city}`,
-  description: `Conheça todos os nossos serviços em ${siteConfig.city}: instalação elétrica, hidráulica, montagem de móveis, pintura, pequenos reparos e muito mais. Orçamento grátis!`,
+  title: `Serviços Hidráulicos em ${siteConfig.city}`,
+  description: `Conheça nossos serviços hidráulicos em ${siteConfig.city}: caça vazamentos, desentupimento, instalações, caixas-d’água e manutenção preventiva.`,
   alternates: {
     canonical: 'https://maridodealuguelsp.com.br/servicos'
   }
@@ -28,79 +28,58 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 const iconMap: Record<string, React.ElementType> = {
   Wrench,
-  Zap,
   Droplets,
-  Armchair,
-  PaintBucket,
-  Wind
+  Settings,
+  Bath,
+  Waves,
+  ShieldCheck
 };
 
 const serviceDetails: Record<string, { items: string[]; benefits: string[] }> = {
-  'pequenos-reparos': {
+  vazamentos: {
     items: [
-      'Conserto de portas e janelas emperradas',
-      'Troca e ajuste de fechaduras e dobradiças',
-      'Fixação de prateleiras, quadros e espelhos',
-      'Instalação de cortinas e persianas',
-      'Vedação de frestas e buracos',
-      'Reparos gerais em drywall e gesso'
+      'Detecção de vazamentos aparentes e ocultos', 'Reparo de tubulações, conexões e registros',
+      'Vazamentos em paredes, pisos e tetos', 'Troca de vedação em torneiras e sifões',
+      'Correção de infiltrações de origem hidráulica', 'Avaliação de consumo elevado de água'
     ],
-    benefits: ['Rápido e sem bagunça', 'Ferramentas profissionais', 'Garantia no serviço']
+    benefits: ['Diagnóstico técnico', 'Solução menos invasiva possível', 'Garantia no serviço']
   },
-  'instalacao-eletrica': {
+  desentupimento: {
     items: [
-      `Eletricista residencial em ${siteConfig.city}`,
-      'Troca de tomadas e interruptores',
-      'Instalação de lustres, arandelas e ventiladores de teto',
-      'Instalação de chuveiro elétrico',
-      'Manutenção de quadros de disjuntores',
-      'Instalação de exaustores e ar-condicionado'
+      'Desentupimento de pias e ralos', 'Desentupimento de vasos sanitários', 'Limpeza de sifões e caixas de gordura',
+      'Desobstrução de redes de esgoto', 'Remoção de resíduos e mau cheiro', 'Orientação para prevenir novas obstruções'
     ],
-    benefits: ['Serviço seguro e normatizado', 'Testagem completa', 'Garantia de 90 dias']
+    benefits: ['Atendimento ágil', 'Cuidado com revestimentos', 'Área limpa após o serviço']
   },
-  hidraulica: {
+  instalacoes: {
     items: [
-      'Conserto de vazamentos em geral',
-      `Instalação de chuveiro em ${siteConfig.city}`,
-      'Troca de torneiras e registros',
-      'Desentupimento de ralos e pias',
-      "Instalação de vasos sanitários e caixas d'água",
-      'Conserto de descarga e válvulas'
+      'Instalação de torneiras, misturadores e filtros', 'Troca de sifões, flexíveis e válvulas',
+      'Instalação de chuveiros e duchas', 'Troca de registros de pressão e gaveta',
+      'Instalação de vasos sanitários e cubas', 'Adequação de pontos de água e esgoto'
     ],
-    benefits: ['Atendimento emergencial', 'Diagnóstico preciso', 'Sem danos às paredes']
+    benefits: ['Acabamento profissional', 'Materiais adequados', 'Teste de funcionamento']
   },
-  'montagem-de-moveis': {
+  'banheiros-cozinhas': {
     items: [
-      `Montagem de móveis em ${siteConfig.city}`,
-      'Guarda-roupas, camas e estantes',
-      'Móveis IKEA, Tok&Stok, Leroy Merlin e outros',
-      'Escrivaninhas e mesas de escritório',
-      'Nivelamento e fixação na parede',
-      'Desmontagem e remontagem para mudanças'
+      'Reparo de descargas, válvulas e caixas acopladas', 'Troca de sifão e vedação de pias',
+      'Correção de baixa pressão de água', 'Eliminação de maus odores em ralos',
+      'Reparo de vazamentos em bancadas', 'Instalação de pontos para lava-louças e lavadoras'
     ],
-    benefits: ['Experiência com todas as marcas', 'Ferramentas adequadas', 'Montagem correta e segura']
+    benefits: ['Soluções duradouras', 'Cuidado com o acabamento', 'Orçamento alinhado antes de executar']
   },
-  pintura: {
+  'caixa-dagua': {
     items: [
-      `Pintor residencial em ${siteConfig.city}`,
-      'Pintura de paredes e tetos',
-      'Pintura de apartamentos completos',
-      'Pintura de fachadas e áreas externas',
-      'Preparação de superfícies e massa corrida',
-      'Pintura de portas, janelas e rodapés'
+      "Instalação e troca de caixas-d'água", 'Troca e regulagem de boias', 'Manutenção de bombas e pressurizadores',
+      'Instalação de registros e válvulas', 'Correção de transbordamentos', 'Verificação de vedação e abastecimento'
     ],
-    benefits: ['Proteção total dos móveis', 'Acabamento impecável', 'Tintas premium ou a combinar']
+    benefits: ['Abastecimento regular', 'Componentes de qualidade', 'Teste completo do sistema']
   },
-  'instalacao-de-ar-condicionado': {
+  'manutencao-preventiva': {
     items: [
-      `Instalação de ar-condicionado em ${siteConfig.city}`,
-      'Todos os modelos split e janela',
-      'Manutenção preventiva e corretiva',
-      'Limpeza e higienização de filtros',
-      'Recarga de gás',
-      'Desinstalação para mudanças'
+      'Inspeção de tubulações e conexões', 'Revisão de torneiras, registros e descargas', 'Verificação de pontos de esgoto',
+      "Avaliação de caixa-d'água e boias", 'Identificação de sinais de infiltração', 'Relatório de prioridades e recomendações'
     ],
-    benefits: ['Técnico certificado', 'Instalação limpa e organizada', 'Garantia de funcionamento']
+    benefits: ['Prevenção de emergências', 'Economia de água', 'Ideal para imóveis e condomínios']
   }
 };
 
@@ -122,11 +101,10 @@ export default function ServicosPage() {
             </ol>
           </nav>
           <h1 id="services-hero-title" className="text-3xl md:text-5xl font-extrabold mb-4">
-            Serviços de Marido de Aluguel em <span className="text-yellow-300">{siteConfig.city}</span>
+            Serviços Hidráulicos em <span className="text-yellow-300">{siteConfig.city}</span>
           </h1>
           <p className="text-lg text-blue-100 max-w-2xl">
-            Soluções completas para sua casa ou empresa. Cada serviço realizado com profissionalismo, pontualidade e
-            garantia de qualidade.
+            Atendimento especializado para resolver problemas hidráulicos com agilidade, transparência e garantia.
           </p>
         </div>
       </section>
@@ -158,7 +136,7 @@ export default function ServicosPage() {
                       </h2>
                       <p className="text-gray-600 leading-relaxed text-sm">{service.description}</p>
                       <a
-                        href={whatsappLink}
+                        href={whatsappLinkFor(service.title)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-whatsapp text-sm py-2.5 mt-2"
@@ -219,15 +197,14 @@ export default function ServicosPage() {
       <section className="bg-gray-50 py-14" aria-labelledby="services-cta-title">
         <div className="container-custom text-center">
           <h2 id="services-cta-title" className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-            Não encontrou o serviço que precisa?
+            Precisa de outro serviço hidráulico?
           </h2>
           <p className="text-gray-600 mb-6 max-w-lg mx-auto">
-            Entre em contato pelo WhatsApp e nos explique o que precisa. Avaliamos e fazemos o orçamento sem
-            compromisso!
+            Chame no WhatsApp, explique a situação e envie fotos se puder. Avaliamos o caso e orientamos o melhor caminho.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={whatsappLink}
+              href={whatsappLinkFor('outro serviço hidráulico')}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp"

@@ -4,8 +4,8 @@ import { CheckCircle2, Award, Users, Clock, Star, ArrowRight } from 'lucide-reac
 import { siteConfig, whatsappLink } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Sobre | Marido de Aluguel em ${siteConfig.city}`,
-  description: `Conheça o profissional por trás do Marido de Aluguel em ${siteConfig.city}. Mais de 5 anos de experiência, centenas de clientes satisfeitos e garantia em todos os serviços.`,
+  title: `Sobre | Serviços Hidráulicos em ${siteConfig.city}`,
+  description: `Conheça a equipe da ${siteConfig.name}: especialistas em serviços hidráulicos em ${siteConfig.city}, com atendimento responsável e garantia.`,
   alternates: {
     canonical: 'https://maridodealuguelsp.com.br/sobre'
   }
@@ -60,11 +60,10 @@ export default function SobrePage() {
             </ol>
           </nav>
           <h1 id="about-hero-title" className="text-3xl md:text-5xl font-extrabold mb-4">
-            Conheça o Profissional
+            Conheça a Nossa Especialidade
           </h1>
           <p className="text-lg text-blue-100 max-w-2xl">
-            Mais de 5 anos resolvendo problemas residenciais em {siteConfig.city} com dedicação, honestidade e
-            qualidade.
+            Mais de 10 anos resolvendo problemas hidráulicos em {siteConfig.city} com técnica, transparência e qualidade.
           </p>
         </div>
       </section>
@@ -81,8 +80,8 @@ export default function SobrePage() {
                   <div className="w-28 h-28 bg-white/20 rounded-full flex items-center justify-center mb-4">
                     <span className="text-5xl font-bold text-white">DO</span>
                   </div>
-                  <p className="text-white font-bold text-xl">Davi Oliveira</p>
-                  <p className="text-blue-200 text-sm">Marido de Aluguel</p>
+                  <p className="text-white font-bold text-xl">Hidro Soluções</p>
+                  <p className="text-blue-200 text-sm">Especialistas em Hidráulica</p>
                 </div>
               </div>
               {/* Badge */}
@@ -100,26 +99,24 @@ export default function SobrePage() {
             {/* Content */}
             <div>
               <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                Davi Oliveira
+                Hidro Soluções
               </h2>
-              <p className="text-brand-blue font-semibold mb-6">Marido de Aluguel Profissional em {siteConfig.city}</p>
+              <p className="text-brand-blue font-semibold mb-6">Serviços Hidráulicos Profissionais em {siteConfig.city}</p>
 
               <div className="prose prose-gray max-w-none">
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Sou <strong>Davi Oliveira</strong>, técnico em manutenção predial com mais de{' '}
-                  <strong>5 anos de experiência</strong> realizando serviços residenciais e comerciais em{' '}
+                  Somos a <strong>Hidro Soluções</strong>, equipe especializada com mais de{' '}
+                  <strong>10 anos de experiência</strong> em serviços hidráulicos residenciais e comerciais em{' '}
                   {siteConfig.city} e região metropolitana.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Comecei minha trajetória como ajudante em uma construtora e fui me especializando em diferentes áreas:
-                  elétrica, hidráulica, montagem de móveis, pintura e reparos gerais. Hoje, ofereço um serviço completo
-                  e de qualidade para quem precisa de um <strong>profissional de confiança</strong> sem precisar
-                  contratar várias empresas.
+                  Nossa trajetória começou em manutenção predial e evoluiu com especialização em redes de água e esgoto,
+                  caça vazamentos, desentupimento, instalações e caixas-d’água. Hoje oferecemos atendimento técnico e
+                  de qualidade para quem busca um <strong>encanador de confiança</strong>.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Meu compromisso é sempre entregar um serviço limpo, pontual e dentro do que foi combinado. Já atendi{' '}
-                  <strong>mais de 500 residências</strong> em {siteConfig.city} e tenho orgulho de dizer que a maioria
-                  dos meus clientes me indicam para amigos e familiares.
+                  Nosso compromisso é entregar um serviço limpo, pontual e dentro do combinado. Já atendemos{' '}
+                  <strong>mais de 500 imóveis</strong> em {siteConfig.city}, sempre com comunicação clara e respeito ao seu espaço.
                 </p>
               </div>
 
@@ -144,7 +141,7 @@ export default function SobrePage() {
                 aria-label="Entrar em contato pelo WhatsApp"
               >
                 <WhatsAppIcon className="w-5 h-5" />
-                Falar com o Davi
+                Falar com um especialista
               </a>
             </div>
           </div>
@@ -183,17 +180,17 @@ export default function SobrePage() {
                 {
                   year: '2014',
                   title: 'Início da carreira',
-                  desc: 'Começou como auxiliar em construtoras na Grande São Paulo, adquirindo experiência prática em obras residenciais e comerciais.'
+                  desc: 'Início na manutenção predial, com experiência prática em instalações de água e esgoto em imóveis residenciais e comerciais.'
                 },
                 {
                   year: '2016',
                   title: 'Especialização técnica',
-                  desc: 'Realizou cursos técnicos em instalações elétricas e hidráulicas, aprofundando o conhecimento em normas de segurança.'
+                  desc: 'Especialização técnica em instalações hidráulicas, leitura de redes e boas práticas de segurança.'
                 },
                 {
                   year: '2018',
-                  title: 'Marido de Aluguel autônomo',
-                  desc: 'Iniciou os trabalhos como profissional autônomo, atendendo clientes residenciais em São Paulo com serviços personalizados.'
+                  title: 'Foco em serviços hidráulicos',
+                  desc: 'Passou a atender clientes em São Paulo com foco em vazamentos, desentupimentos, instalações e manutenção.'
                 },
                 {
                   year: '2022',
@@ -203,7 +200,7 @@ export default function SobrePage() {
                 {
                   year: '2026',
                   title: 'Hoje: +500 clientes e 5★ no Google',
-                  desc: `Referência em marido de aluguel em ${siteConfig.city}, com +47 avaliações 5 estrelas e clientes em toda a cidade.`
+                  desc: `Referência em serviços hidráulicos em ${siteConfig.city}, com +47 avaliações 5 estrelas e clientes em toda a cidade.`
                 }
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 pl-14 relative">
@@ -229,7 +226,7 @@ export default function SobrePage() {
       <section className="bg-hero text-white py-14" aria-labelledby="about-cta-title">
         <div className="container-custom text-center">
           <h2 id="about-cta-title" className="text-2xl md:text-3xl font-bold mb-4">
-            Pronto para Resolver seus Problemas?
+            Precisa Resolver um Problema Hidráulico?
           </h2>
           <p className="text-blue-100 mb-6 max-w-lg mx-auto">
             Entre em contato agora e solicite seu orçamento gratuito. Atendo {siteConfig.city} e região.

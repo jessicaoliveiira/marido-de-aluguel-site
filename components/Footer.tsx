@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Wrench, Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
+import { Droplets, Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 import { siteConfig, whatsappLink } from '@/lib/config';
 
 // WhatsApp SVG Icon
@@ -34,18 +34,18 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="bg-brand-blue p-2 rounded-lg">
-                <Wrench className="w-5 h-5 text-white" aria-hidden="true" />
+                <Droplets className="w-5 h-5 text-white" aria-hidden="true" />
               </div>
               <div>
-                <span className="font-bold text-white text-lg block">Marido de Aluguel</span>
+                <span className="font-bold text-white text-lg block">{siteConfig.name}</span>
                 <span className="text-brand-blue-light text-xs">
                   {siteConfig.city} – {siteConfig.state}
                 </span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Serviços residenciais rápidos e profissionais em {siteConfig.city}. Pequenos reparos, elétrica,
-              hidráulica, montagem de móveis, pintura e muito mais. Atendimento ágil e preço justo.
+              Serviços hidráulicos para residências, empresas e condomínios em {siteConfig.city}. Vazamentos,
+              desentupimento, instalações e manutenção com atendimento ágil e preço justo.
             </p>
             <div className="flex items-center gap-3 mt-5">
               <a
@@ -53,7 +53,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-brand-green p-2.5 rounded-lg transition-colors"
-                aria-label="WhatsApp Marido de Aluguel"
+                aria-label={`WhatsApp ${siteConfig.name}`}
               >
                 <WhatsAppIcon className="w-4 h-4" />
               </a>
@@ -112,7 +112,7 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="container-custom py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
           <p>
-            © {new Date().getFullYear()} Marido de Aluguel {siteConfig.city}. Todos os direitos reservados.
+            © {new Date().getFullYear()} {siteConfig.name} {siteConfig.city}. Todos os direitos reservados.
           </p>
           <p>Desenvolvido com ❤️ para atender você melhor</p>
         </div>

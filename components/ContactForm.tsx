@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { CheckCircle2, AlertCircle, Send } from 'lucide-react';
-import { whatsappLink } from '@/lib/config';
+import { siteConfig } from '@/lib/config';
 
 // WhatsApp SVG Icon
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -28,12 +28,12 @@ type FormData = {
 };
 
 const serviceOptions = [
-  'Pequenos Reparos',
-  'Instalação Elétrica',
-  'Hidráulica',
-  'Montagem de Móveis',
-  'Pintura',
-  'Instalação de Ar-Condicionado',
+  'Caça Vazamentos',
+  'Desentupimento',
+  'Instalações Hidráulicas',
+  'Banheiros e Cozinhas',
+  "Caixa-d'Água e Bombas",
+  'Manutenção Preventiva',
   'Outro'
 ];
 
@@ -48,9 +48,6 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // Simulate API call — replace with actual form submission (e.g., Resend, Formspree)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     // Build WhatsApp message with form data
     const msg = `Olá! Vim pelo site e gostaria de um orçamento.
 
@@ -60,7 +57,7 @@ export default function ContactForm() {
 *Mensagem:* ${data.message}`;
 
     window.open(
-      `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5511943135297'}?text=${encodeURIComponent(msg)}`,
+      `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || siteConfig.phone}?text=${encodeURIComponent(msg)}`,
       '_blank'
     );
 
@@ -75,7 +72,7 @@ export default function ContactForm() {
           <CheckCircle2 className="w-8 h-8 text-brand-green" aria-hidden="true" />
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">Mensagem Enviada!</h3>
-        <p className="text-gray-600 mb-6">Você foi redirecionado para o WhatsApp. Aguarde nosso retorno em breve!</p>
+        <p className="text-gray-600 mb-6">Abrimos o WhatsApp com seus dados para você concluir o envio. Retornaremos assim que possível!</p>
         <button onClick={() => setSubmitted(false)} className="btn-primary" type="button">
           Enviar Nova Mensagem
         </button>
@@ -87,9 +84,10 @@ export default function ContactForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="card flex flex-col gap-5"
-      aria-label="Formulário de contato"
+      aria-label="Formulário para solicitar atendimento hidráulico"
       noValidate
     >
+      <p className="rounded-lg bg-blue-50 px-3 py-2 text-xs leading-relaxed text-brand-blue">Ao continuar, abriremos o WhatsApp com as informações preenchidas para você enviar a solicitação.</p>
       {/* Name */}
       <div>
         <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1.5">

@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
-import { siteConfig, whatsappLink } from '@/lib/config';
+import { siteConfig, whatsappLinkFor } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Contato | Marido de Aluguel em ${siteConfig.city}`,
-  description: `Entre em contato com o Marido de Aluguel em ${siteConfig.city}. WhatsApp, e-mail ou formulário. Orçamento grátis e resposta rápida!`,
+  title: `Contato | Encanador em ${siteConfig.city}`,
+  description: `Entre em contato para serviços hidráulicos em ${siteConfig.city}. Orçamento grátis, atendimento rápido por WhatsApp e profissionais de confiança.`,
   alternates: {
     canonical: 'https://maridodealuguelsp.com.br/contato'
   }
@@ -72,7 +72,7 @@ export default function ContatoPage() {
             Entre em Contato
           </h1>
           <p className="text-lg text-blue-100 max-w-2xl">
-            Solicite seu orçamento gratuito agora. Respondemos em poucos minutos pelo WhatsApp.
+            Conte o que está acontecendo e solicite seu orçamento gratuito. Respondemos em poucos minutos pelo WhatsApp.
           </p>
         </div>
       </section>
@@ -86,14 +86,13 @@ export default function ContatoPage() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Fale com a gente</h2>
                 <p className="text-gray-600">
-                  A forma mais rápida é pelo WhatsApp. Mas você também pode nos enviar um e-mail ou preencher o
-                  formulário ao lado.
+                  A forma mais rápida é pelo WhatsApp. Se possível, envie fotos ou vídeo do problema para agilizar a avaliação.
                 </p>
               </div>
 
               {/* WhatsApp big CTA */}
               <a
-                href={whatsappLink}
+                href={whatsappLinkFor('um serviço hidráulico')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 bg-brand-green hover:bg-brand-green-dark text-white rounded-2xl p-5 transition-colors group"

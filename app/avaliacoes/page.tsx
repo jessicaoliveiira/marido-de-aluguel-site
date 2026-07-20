@@ -5,8 +5,8 @@ import TestimonialCard from '@/components/TestimonialCard';
 import { siteConfig, whatsappLink, testimonials } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Avaliações | Marido de Aluguel em ${siteConfig.city}`,
-  description: `Veja o que os clientes falam sobre o Marido de Aluguel em ${siteConfig.city}. Mais de 47 avaliações com nota 5 estrelas. Qualidade e confiança comprovados.`,
+  title: `Avaliações | Serviços Hidráulicos em ${siteConfig.city}`,
+  description: `Veja o que os clientes falam sobre nossos serviços hidráulicos em ${siteConfig.city}. Qualidade, atendimento e confiança comprovados.`,
   alternates: {
     canonical: 'https://maridodealuguelsp.com.br/avaliacoes'
   }

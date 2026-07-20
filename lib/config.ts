@@ -1,167 +1,52 @@
 export const siteConfig = {
-  name: 'Marido de Aluguel',
+  name: 'Hidro Soluções',
   city: 'São Paulo',
   state: 'SP',
-  phone: '5511943135297', // número WhatsApp sem + e sem espaços
+  phone: '5511943135297',
   phoneFormatted: '(11) 94313-5297',
-  email: 'contato@maridodealuguel.com.br',
+  email: 'contato@hidrosolucoes.com.br',
   address: 'São Paulo, SP – Atendemos toda a região',
-  instagram: 'https://instagram.com/maridodealuguel',
-  facebook: 'https://facebook.com/maridodealuguel',
-  whatsappMessage: 'Olá, gostaria de solicitar um orçamento',
+  instagram: 'https://instagram.com/hidrosolucoes',
+  facebook: 'https://facebook.com/hidrosolucoes',
+  whatsappMessage: 'Olá, preciso de um orçamento para um serviço hidráulico.',
   googleMapsEmbed:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754495009927!2d-46.6521985!3d-23.5646162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000'
 };
 
 export const whatsappLink = `https://wa.me/${siteConfig.phone}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 
+export function whatsappLinkFor(service?: string, message?: string) {
+  const text = message || (service
+    ? `Olá, vim pelo site e preciso de ajuda com: ${service}. Posso enviar fotos ou vídeo do problema.`
+    : siteConfig.whatsappMessage);
+
+  return `https://wa.me/${siteConfig.phone}?text=${encodeURIComponent(text)}`;
+}
+
 export const services = [
-  {
-    id: 'pequenos-reparos',
-    title: 'Pequenos Reparos',
-    shortTitle: 'Pequenos Reparos',
-    description: `Consertos gerais em sua residência ou empresa em ${siteConfig.city}. Portas emperradas, fechaduras, dobradiças, janelas, cortinas e muito mais. Reparos rápidos com qualidade garantida.`,
-    icon: 'Wrench',
-    slug: 'pequenos-reparos',
-    keywords: [`pequenos reparos em ${siteConfig.city}`, 'consertos residenciais', 'marido de aluguel']
-  },
-  {
-    id: 'instalacao-eletrica',
-    title: 'Instalação Elétrica',
-    shortTitle: 'Instalação Elétrica',
-    description: `Eletricista residencial em ${siteConfig.city}. Troca de tomadas, interruptores, instalação de lustres, ventiladores, ar-condicionado e quadros de disjuntores. Serviço seguro e garantido.`,
-    icon: 'Zap',
-    slug: 'instalacao-eletrica',
-    keywords: [`eletricista residencial em ${siteConfig.city}`, 'instalação elétrica', 'troca de tomadas']
-  },
-  {
-    id: 'hidraulica',
-    title: 'Hidráulica',
-    shortTitle: 'Hidráulica',
-    description: `Encanador em ${siteConfig.city} para conserto de vazamentos, troca de registros, instalação de chuveiro, torneiras, vasos sanitários e muito mais. Atendimento rápido e sem bagunça.`,
-    icon: 'Droplets',
-    slug: 'hidraulica',
-    keywords: [
-      `encanador em ${siteConfig.city}`,
-      `instalação de chuveiro em ${siteConfig.city}`,
-      'conserto de vazamento'
-    ]
-  },
-  {
-    id: 'montagem-de-moveis',
-    title: 'Montagem de Móveis',
-    shortTitle: 'Montagem de Móveis',
-    description: `Montagem de móveis em ${siteConfig.city} com agilidade e precisão. Guarda-roupas, camas, estantes, escrivaninhas, móveis IKEA, Tok&Stok e qualquer outra loja. Peças no lugar certo.`,
-    icon: 'Armchair',
-    slug: 'montagem-de-moveis',
-    keywords: [`montagem de móveis em ${siteConfig.city}`, 'montagem de guarda-roupa', 'montagem IKEA']
-  },
-  {
-    id: 'pintura',
-    title: 'Pintura',
-    shortTitle: 'Pintura',
-    description: `Pintor residencial em ${siteConfig.city} para pintura de paredes, tetos, portas e fachadas. Acabamento impecável, sem respingos, com proteção total dos seus móveis e pisos.`,
-    icon: 'PaintBucket',
-    slug: 'pintura',
-    keywords: [`pintor em ${siteConfig.city}`, 'pintura residencial', 'pintura de apartamento']
-  },
-  {
-    id: 'instalacao-de-ar-condicionado',
-    title: 'Instalação de Ar-Condicionado',
-    shortTitle: 'Ar-Condicionado',
-    description: `Instalação e manutenção de ar-condicionado em ${siteConfig.city}. Todos os modelos split, janela e portátil. Serviço rápido, limpo e com garantia de 90 dias.`,
-    icon: 'Wind',
-    slug: 'instalacao-de-ar-condicionado',
-    keywords: [
-      `instalação de ar-condicionado em ${siteConfig.city}`,
-      'manutenção de ar-condicionado',
-      'instalação split'
-    ]
-  }
+  { id: 'vazamentos', title: 'Caça Vazamentos', shortTitle: 'Vazamentos', description: `Localização e reparo de vazamentos em torneiras, tubulações, paredes e pisos em ${siteConfig.city}. Diagnóstico preciso para evitar desperdício e danos maiores.`, icon: 'Droplets', slug: 'vazamentos', keywords: [`caça vazamentos em ${siteConfig.city}`, 'conserto de vazamento', 'encanador urgente'] },
+  { id: 'desentupimento', title: 'Desentupimento', shortTitle: 'Desentupimento', description: `Desentupimento de pias, ralos, vasos sanitários e redes de esgoto em ${siteConfig.city}. Atendimento ágil, com técnicas adequadas e cuidado com o imóvel.`, icon: 'Wrench', slug: 'desentupimento', keywords: [`desentupidora em ${siteConfig.city}`, 'desentupimento de pia', 'desentupimento de vaso'] },
+  { id: 'instalacoes', title: 'Instalações Hidráulicas', shortTitle: 'Instalações', description: `Instalação e troca de torneiras, misturadores, chuveiros, sifões, registros, filtros e vasos sanitários. Serviço seguro, limpo e com acabamento profissional.`, icon: 'Settings', slug: 'instalacoes', keywords: [`instalação hidráulica em ${siteConfig.city}`, 'troca de torneira', 'instalação de vaso sanitário'] },
+  { id: 'banheiros-cozinhas', title: 'Banheiros e Cozinhas', shortTitle: 'Banheiros e Cozinhas', description: `Manutenção completa para pontos de água e esgoto em cozinhas, banheiros, lavabos e áreas de serviço. Resolvemos vazamentos, mau cheiro e baixa vazão.`, icon: 'Bath', slug: 'banheiros-cozinhas', keywords: ['encanador para banheiro', 'manutenção hidráulica de cozinha', 'reparo de descarga'] },
+  { id: 'caixa-dagua', title: "Caixa-d'Água e Bombas", shortTitle: "Caixa-d'Água", description: `Instalação, manutenção e reparos em caixas-d'água, boias, registros e bombas. Tenha abastecimento regular e água protegida em sua residência ou empresa.`, icon: 'Waves', slug: 'caixa-dagua', keywords: [`manutenção de caixa d'água em ${siteConfig.city}`, 'troca de boia', 'instalação de bomba d água'] },
+  { id: 'manutencao-preventiva', title: 'Manutenção Preventiva', shortTitle: 'Manutenção', description: `Revisão hidráulica para prevenir infiltrações, vazamentos e entupimentos. Ideal para imóveis residenciais, condomínios, comércios e antes de reformas.`, icon: 'ShieldCheck', slug: 'manutencao-preventiva', keywords: ['manutenção hidráulica preventiva', 'revisão hidráulica residencial', 'encanador para condomínio'] }
 ];
 
 export const testimonials = [
-  {
-    name: 'Ana Paula M.',
-    rating: 5,
-    text: 'Excelente profissional! Montou todo meu apartamento novo em poucas horas, deixou tudo organizado e ainda recolheu as embalagens. Super recomendo!',
-    service: 'Montagem de Móveis',
-    date: 'Maio 2026',
-    initials: 'AP'
-  },
-  {
-    name: 'Roberto S.',
-    rating: 5,
-    text: 'Resolvi três problemas elétricos que estavam me preocupando há meses. Profissional pontual, explicou tudo que fez e o preço foi muito justo. Com certeza voltarei a contratar.',
-    service: 'Instalação Elétrica',
-    date: 'Abril 2026',
-    initials: 'RS'
-  },
-  {
-    name: 'Carla T.',
-    rating: 5,
-    text: 'Tinha um vazamento sério na cozinha. Ele chegou no mesmo dia, identificou o problema rapidamente e resolveu com qualidade. Casa limpa e problema resolvido!',
-    service: 'Hidráulica',
-    date: 'Abril 2026',
-    initials: 'CT'
-  },
-  {
-    name: 'Marcos F.',
-    rating: 5,
-    text: 'Pintou a sala e os quartos do apartamento. Acabamento perfeito, pontual e muito organizado. Protegeu tudo com lona e deixou sem nenhum respingo. Recomendo demais!',
-    service: 'Pintura',
-    date: 'Março 2026',
-    initials: 'MF'
-  },
-  {
-    name: 'Juliana R.',
-    rating: 5,
-    text: 'Instalou o ar-condicionado e ainda ajeitou uma tomada que estava solta. Muito prestativo e o serviço ficou impecável. Preço honesto e profissional de verdade.',
-    service: 'Ar-Condicionado',
-    date: 'Março 2026',
-    initials: 'JR'
-  },
-  {
-    name: 'Fernando L.',
-    rating: 5,
-    text: 'Atendimento rápido e eficiente. Fui super bem atendido pelo WhatsApp, agendou para o dia seguinte e resolveu tudo que precisava. Muito satisfeito!',
-    service: 'Pequenos Reparos',
-    date: 'Fevereiro 2026',
-    initials: 'FL'
-  }
+  { name: 'Ana Paula M.', rating: 5, text: 'Tinha um vazamento escondido na cozinha e a conta de água só aumentava. Encontraram a origem rapidamente e fizeram o reparo sem quebradeira desnecessária.', service: 'Caça Vazamentos', date: 'Maio 2026', initials: 'AP' },
+  { name: 'Roberto S.', rating: 5, text: 'Atendimento muito rápido para desentupir o ralo do banheiro. Explicou o que causou o problema, deixou tudo limpo e passou orientações para evitar que voltasse.', service: 'Desentupimento', date: 'Abril 2026', initials: 'RS' },
+  { name: 'Carla T.', rating: 5, text: 'Trocaram torneira, sifão e registro da cozinha com muito capricho. Serviço organizado, preço combinado antes e excelente acabamento.', service: 'Instalações Hidráulicas', date: 'Abril 2026', initials: 'CT' },
+  { name: 'Marcos F.', rating: 5, text: 'A descarga não parava de vazar. Resolveram no mesmo dia e ainda revisaram o banheiro todo. Profissional pontual e muito educado.', service: 'Banheiros e Cozinhas', date: 'Março 2026', initials: 'MF' },
+  { name: 'Juliana R.', rating: 5, text: "Fizeram a manutenção da caixa-d'água e trocaram a boia. Agora a água não transborda mais e ficou tudo funcionando perfeitamente.", service: "Caixa-d'Água e Bombas", date: 'Março 2026', initials: 'JR' },
+  { name: 'Fernando L.', rating: 5, text: 'Solicitei uma revisão preventiva antes da reforma e foi a melhor decisão. Identificaram pontos que poderiam virar infiltração e evitaram dor de cabeça.', service: 'Manutenção Preventiva', date: 'Fevereiro 2026', initials: 'FL' }
 ];
 
 export const faqs = [
-  {
-    question: `O que é marido de aluguel em ${siteConfig.city}?`,
-    answer: `Marido de aluguel é um profissional polivalente que realiza pequenos reparos e serviços residenciais em ${siteConfig.city}. É a solução ideal para quem precisa de ajuda com instalações, consertos e manutenção doméstica sem precisar contratar múltiplos especialistas.`
-  },
-  {
-    question: 'Quais serviços são realizados?',
-    answer:
-      'Realizamos pequenos reparos gerais, instalações elétricas, serviços hidráulicos, montagem de móveis, pintura residencial, instalação de ar-condicionado, fixação de quadros e muito mais. Entre em contato para verificar seu serviço específico.'
-  },
-  {
-    question: 'Qual é o prazo de atendimento?',
-    answer: `Atendemos em ${siteConfig.city} e região geralmente no mesmo dia ou no dia seguinte. Para emergências, fazemos o possível para atender com urgência. Entre em contato pelo WhatsApp para verificar disponibilidade.`
-  },
-  {
-    question: 'Como funciona o orçamento?',
-    answer:
-      'O orçamento é gratuito e sem compromisso. Você pode solicitar pelo WhatsApp descrevendo o serviço ou enviar fotos do local. Respondemos rapidamente com o valor e a disponibilidade de agenda.'
-  },
-  {
-    question: 'Os serviços têm garantia?',
-    answer:
-      'Sim! Todos os serviços realizados têm garantia. A mão de obra é garantida por 90 dias. Caso haja qualquer problema relacionado ao serviço executado, retornamos sem custo adicional.'
-  },
-  {
-    question: `Quais regiões de ${siteConfig.city} são atendidas?`,
-    answer: `Atendemos toda a cidade de ${siteConfig.city} e grande parte da região metropolitana, incluindo Zona Sul, Zona Norte, Zona Leste, Zona Oeste e Centro. Consulte disponibilidade para sua região específica.`
-  },
-  {
-    question: 'Quais formas de pagamento são aceitas?',
-    answer:
-      'Aceitamos PIX, dinheiro, cartão de débito e crédito (à vista ou parcelado). Informamos o valor antes de iniciar o serviço para que não haja surpresas.'
-  }
+  { question: `Quais serviços hidráulicos vocês realizam em ${siteConfig.city}?`, answer: 'Atendemos vazamentos, entupimentos, instalações e trocas de louças e metais, reparos em banheiros e cozinhas, caixas-d’água, bombas e manutenção preventiva.' },
+  { question: 'Vocês atendem vazamentos e entupimentos com urgência?', answer: `Sim. Para vazamentos ativos, retorno de esgoto ou entupimentos, priorizamos o atendimento. Chame no WhatsApp para confirmar a disponibilidade na sua região de ${siteConfig.city}.` },
+  { question: 'Como é feito o orçamento?', answer: 'Você pode enviar fotos, vídeos e uma breve descrição pelo WhatsApp. Quando necessário, avaliamos no local antes de iniciar o serviço e alinhamos o valor com transparência.' },
+  { question: 'É preciso quebrar a parede para encontrar vazamentos?', answer: 'Nem sempre. Primeiro realizamos uma avaliação técnica para localizar a origem e buscamos a solução menos invasiva possível para o imóvel.' },
+  { question: 'Os serviços têm garantia?', answer: 'Sim. A mão de obra tem garantia de 90 dias para o serviço executado. Caso ocorra alguma questão relacionada ao reparo, retornamos para avaliar.' },
+  { question: `Quais regiões de ${siteConfig.city} são atendidas?`, answer: `Atendemos toda a cidade de ${siteConfig.city} e região metropolitana. Consulte pelo WhatsApp a disponibilidade para o seu endereço.` },
+  { question: 'Quais formas de pagamento são aceitas?', answer: 'Aceitamos PIX, dinheiro, cartão de débito e crédito. As condições são informadas antes do início do atendimento.' }
 ];

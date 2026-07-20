@@ -8,10 +8,10 @@ export default function SchemaOrg({ pageType = 'home' }: SchemaOrgProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': `https://maridodealuguel${siteConfig.city.toLowerCase().replace(/\s/g, '')}.com.br`,
-    name: `Marido de Aluguel em ${siteConfig.city}`,
-    description: `Serviços residenciais profissionais em ${siteConfig.city}: pequenos reparos, instalação elétrica, hidráulica, montagem de móveis, pintura e mais. Atendimento rápido e preço justo.`,
-    url: `https://maridodealuguel${siteConfig.city.toLowerCase().replace(/\s/g, '')}.com.br`,
+    '@id': 'https://maridodealuguelsp.com.br',
+    name: `${siteConfig.name} em ${siteConfig.city}`,
+    description: `Serviços hidráulicos profissionais em ${siteConfig.city}: vazamentos, desentupimento, instalações, caixas-d’água e manutenção preventiva.`,
+    url: 'https://maridodealuguelsp.com.br',
     telephone: `+${siteConfig.phone}`,
     email: siteConfig.email,
     address: {
@@ -47,41 +47,41 @@ export default function SchemaOrg({ pageType = 'home' }: SchemaOrgProps) {
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Serviços de Marido de Aluguel',
+      name: 'Serviços Hidráulicos',
       itemListElement: [
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Pequenos Reparos Residenciais'
+            name: 'Caça Vazamentos'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Instalação Elétrica'
+            name: 'Desentupimento'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Serviços Hidráulicos'
+            name: 'Instalações Hidráulicas'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Montagem de Móveis'
+            name: "Caixa-d'Água e Bombas"
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Pintura Residencial'
+            name: 'Manutenção Hidráulica Preventiva'
           }
         }
       ]

@@ -1,27 +1,31 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Wrench,
-  Zap,
   Droplets,
-  Armchair,
-  PaintBucket,
-  Wind,
+  Settings,
+  Bath,
+  Waves,
   CheckCircle2,
   Clock,
   DollarSign,
   ShieldCheck,
   Star,
   ArrowRight,
-  Phone
+  Phone,
+  Camera,
+  ClipboardCheck,
+  MapPin,
+  AlertTriangle
 } from 'lucide-react';
 import TestimonialCard from '@/components/TestimonialCard';
 import FAQSection from '@/components/FAQSection';
-import { siteConfig, whatsappLink, services, testimonials, faqs } from '@/lib/config';
+import { siteConfig, whatsappLink, whatsappLinkFor, services, testimonials, faqs } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Marido de Aluguel em ${siteConfig.city} – Serviços Rápidos e Profissionais`,
-  description: `Marido de Aluguel em ${siteConfig.city}: pequenos reparos, instalação elétrica, hidráulica, montagem de móveis e pintura. Orçamento grátis! Atendimento rápido e preço justo.`
+  title: `Encanador em ${siteConfig.city} | Serviços Hidráulicos Rápidos`,
+  description: `Serviços hidráulicos em ${siteConfig.city}: caça vazamentos, desentupimento, instalações, caixas-d’água e manutenção. Orçamento grátis e atendimento rápido.`
 };
 
 // WhatsApp SVG Icon
@@ -41,18 +45,18 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 const iconMap: Record<string, React.ElementType> = {
   Wrench,
-  Zap,
   Droplets,
-  Armchair,
-  PaintBucket,
-  Wind
+  Settings,
+  Bath,
+  Waves,
+  ShieldCheck
 };
 
 const differentials = [
   {
     icon: Clock,
     title: 'Atendimento Rápido',
-    description: 'Respondemos em minutos pelo WhatsApp. Agendamos para o mesmo dia ou próximo dia útil.',
+    description: 'Respondemos em minutos pelo WhatsApp e priorizamos vazamentos e entupimentos urgentes.',
     color: 'bg-blue-50 text-brand-blue'
   },
   {
@@ -64,7 +68,7 @@ const differentials = [
   {
     icon: ShieldCheck,
     title: 'Profissional de Confiança',
-    description: 'Mais de 5 anos de experiência. Serviços com garantia e profissional identificado.',
+    description: 'Especialistas em hidráulica residencial e comercial, com atendimento claro e responsável.',
     color: 'bg-purple-50 text-purple-600'
   },
   {
@@ -90,7 +94,8 @@ export default function HomePage() {
           aria-hidden="true"
         />
 
-        <div className="container-custom py-20 md:py-28 relative z-10">
+        <div className="container-custom py-14 md:py-20 relative z-10">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="max-w-3xl">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
@@ -99,37 +104,46 @@ export default function HomePage() {
             </div>
 
             <h1 id="hero-title" className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
-              Marido de Aluguel em <span className="text-yellow-300">{siteConfig.city}</span> –{' '}
+              Vazamento, entupimento ou{' '}
               <br className="hidden sm:block" />
-              Serviços Rápidos e Profissionais
+              problema hidráulico?
             </h1>
 
             <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-8 max-w-2xl">
-              Reparos elétricos, hidráulica, montagem de móveis, pintura e muito mais em {siteConfig.city}. Atendimento
-              no mesmo dia, orçamento grátis e profissional de confiança.
+              Conte o que aconteceu e fale direto com um especialista em {siteConfig.city}. Atendimento ágil,
+              orçamento transparente e execução com garantia.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="grid gap-3 sm:grid-cols-3">
               <a
-                href={whatsappLink}
+                href={whatsappLinkFor('um vazamento')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-whatsapp text-base py-4 px-8 justify-center"
-                aria-label="Solicitar orçamento pelo WhatsApp"
+                className="rounded-xl bg-white px-4 py-3 text-center text-sm font-bold text-brand-blue transition hover:bg-blue-50"
               >
-                <WhatsAppIcon className="w-5 h-5" />
-                Solicitar Orçamento
+                Estou com vazamento
               </a>
               <a
-                href={`tel:+${siteConfig.phone}`}
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 justify-center active:scale-95"
-                aria-label={`Ligar para ${siteConfig.phoneFormatted}`}
+                href={whatsappLinkFor('um entupimento')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-white/20"
               >
-                <Phone className="w-5 h-5" aria-hidden="true" />
-                {siteConfig.phoneFormatted}
+                Preciso desentupir
+              </a>
+              <a
+                href={whatsappLinkFor('uma instalação ou troca hidráulica')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-white/20"
+              >
+                Quero instalar/trocar
               </a>
             </div>
+
+            <a href={`tel:+${siteConfig.phone}`} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white underline decoration-white/40 underline-offset-4">
+              <Phone className="h-4 w-4" aria-hidden="true" /> Emergência? Ligue: {siteConfig.phoneFormatted}
+            </a>
 
             {/* Trust indicators */}
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-blue-100">
@@ -147,6 +161,22 @@ export default function HomePage() {
               </span>
             </div>
           </div>
+          <div className="relative mx-auto w-full max-w-lg">
+            <div className="absolute -inset-3 rounded-[2rem] bg-cyan-300/20 blur-2xl" aria-hidden="true" />
+            <Image
+              src="/images/tecnico-hidraulico-hero.png"
+              alt="Técnico realizando manutenção hidráulica em uma cozinha"
+              width={1200}
+              height={675}
+              priority
+              className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-2xl"
+            />
+            <div className="absolute -bottom-4 left-4 rounded-2xl bg-white px-4 py-3 text-gray-900 shadow-xl">
+              <p className="text-xs font-medium text-gray-500">Atendimento em São Paulo</p>
+              <p className="text-sm font-bold">Casa, empresa e condomínio</p>
+            </div>
+          </div>
+          </div>
         </div>
       </section>
 
@@ -158,7 +188,7 @@ export default function HomePage() {
               Nossos Serviços em {siteConfig.city}
             </h2>
             <p className="section-subtitle mx-auto">
-              Soluções completas para sua casa ou empresa. Rápido, confiável e com preço justo.
+              Soluções hidráulicas para casas, empresas e condomínios. Diagnóstico preciso, execução limpa e preço justo.
             </p>
           </div>
 
@@ -204,6 +234,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* HOW IT WORKS */}
+      <section className="bg-blue-50 py-16 md:py-20" aria-labelledby="how-it-works-title">
+        <div className="container-custom">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-brand-blue">Simples e sem surpresa</p>
+            <h2 id="how-it-works-title" className="section-title">Como funciona o atendimento</h2>
+            <p className="section-subtitle mx-auto">Você entende o próximo passo desde o primeiro contato.</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { icon: Camera, title: '1. Conte o que aconteceu', text: 'Chame no WhatsApp e, se puder, envie foto ou vídeo do problema.' },
+              { icon: ClipboardCheck, title: '2. Receba orientação', text: 'Avaliamos o caso, confirmamos a disponibilidade e alinhamos o orçamento.' },
+              { icon: MapPin, title: '3. Serviço resolvido', text: 'Vamos até você com as ferramentas necessárias e testamos tudo ao finalizar.' }
+            ].map((step) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.title} className="rounded-2xl bg-white p-6 shadow-card">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue text-white"><Icon className="h-6 w-6" aria-hidden="true" /></div>
+                  <h3 className="mb-2 text-lg font-bold text-gray-900">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-gray-600">{step.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* DIFFERENTIALS */}
       <section className="py-16 md:py-24 bg-gray-50" aria-labelledby="differentials-title">
         <div className="container-custom">
@@ -212,7 +269,7 @@ export default function HomePage() {
               Por Que Nos Escolher?
             </h2>
             <p className="section-subtitle mx-auto">
-              Mais de 5 anos de experiência em {siteConfig.city} com centenas de clientes satisfeitos.
+              Especialização, transparência e cuidado com o seu imóvel em cada atendimento.
             </p>
           </div>
 
@@ -229,6 +286,23 @@ export default function HomePage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* EMERGENCY CTA */}
+      <section className="bg-slate-950 py-12 text-white" aria-labelledby="emergency-title">
+        <div className="container-custom flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+          <div className="flex items-start gap-4">
+            <div className="rounded-2xl bg-red-500/20 p-3 text-red-300"><AlertTriangle className="h-7 w-7" aria-hidden="true" /></div>
+            <div>
+              <h2 id="emergency-title" className="text-2xl font-extrabold">Vazamento ativo ou retorno de esgoto?</h2>
+              <p className="mt-1 max-w-2xl text-sm leading-relaxed text-slate-300">Não espere o problema aumentar. Informe sua região e a situação pelo WhatsApp para verificarmos o atendimento prioritário.</p>
+            </div>
+          </div>
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <a href={`tel:+${siteConfig.phone}`} className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-5 py-3 font-bold transition hover:bg-white/10"><Phone className="h-5 w-5" /> Ligar agora</a>
+            <a href={whatsappLinkFor('uma emergência hidráulica: vazamento ativo ou retorno de esgoto')} target="_blank" rel="noopener noreferrer" className="btn-whatsapp justify-center">Priorizar no WhatsApp</a>
           </div>
         </div>
       </section>
@@ -272,10 +346,10 @@ export default function HomePage() {
       <section className="bg-hero text-white py-16 md:py-24" aria-labelledby="cta-title">
         <div className="container-custom text-center">
           <h2 id="cta-title" className="text-3xl md:text-4xl font-extrabold mb-4">
-            Precisa de um Serviço Agora?
+            Precisa de um Encanador Agora?
           </h2>
           <p className="text-lg text-blue-100 mb-8 max-w-xl mx-auto">
-            Entre em contato pelo WhatsApp e receba seu orçamento em minutos. Atendemos {siteConfig.city} e região.
+            Chame no WhatsApp, explique o problema e receba uma orientação inicial em minutos. Atendemos {siteConfig.city} e região.
           </p>
           <a
             href={whatsappLink}
