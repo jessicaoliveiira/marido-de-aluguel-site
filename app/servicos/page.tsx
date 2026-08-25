@@ -4,10 +4,10 @@ import { Wrench, Droplets, Settings, Bath, Waves, ShieldCheck, CheckCircle2, Arr
 import { siteConfig, whatsappLinkFor, services } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Serviços Hidráulicos em ${siteConfig.city}`,
-  description: `Conheça nossos serviços hidráulicos em ${siteConfig.city}: caça vazamentos, desentupimento, instalações, caixas-d’água e manutenção preventiva.`,
+  title: `Reparo de Vazamentos, Consertos e Instalações em ${siteConfig.city}`,
+  description: `Caça vazamentos, reparo e conserto hidráulico, desentupimento e instalações em ${siteConfig.city}. Conheça os serviços da ${siteConfig.name}.`,
   alternates: {
-    canonical: 'https://maridodealuguelsp.com.br/servicos'
+    canonical: `${siteConfig.siteUrl}/servicos`
   }
 };
 
@@ -90,7 +90,7 @@ export default function ServicosPage() {
       <section className="bg-hero text-white py-14 md:py-20" aria-labelledby="services-hero-title">
         <div className="container-custom">
           <nav aria-label="Breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-sm text-blue-200">
+            <ol className="flex items-center gap-2 text-sm text-brand-green-light">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Início
@@ -103,7 +103,7 @@ export default function ServicosPage() {
           <h1 id="services-hero-title" className="text-3xl md:text-5xl font-extrabold mb-4">
             Serviços Hidráulicos em <span className="text-yellow-300">{siteConfig.city}</span>
           </h1>
-          <p className="text-lg text-blue-100 max-w-2xl">
+          <p className="text-lg text-white/80 max-w-2xl">
             Atendimento especializado para resolver problemas hidráulicos com agilidade, transparência e garantia.
           </p>
         </div>
@@ -135,6 +135,9 @@ export default function ServicosPage() {
                         {service.title} em {siteConfig.city}
                       </h2>
                       <p className="text-gray-600 leading-relaxed text-sm">{service.description}</p>
+                      <Link href={`/servicos/${service.slug}`} className="text-sm font-semibold text-brand-blue hover:underline">
+                        Ver página do serviço
+                      </Link>
                       <a
                         href={whatsappLinkFor(service.title)}
                         target="_blank"

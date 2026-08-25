@@ -8,13 +8,15 @@ import SchemaOrg from "@/components/SchemaOrg";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://maridodealuguelsp.com.br"),
+  metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `Encanador em ${siteConfig.city} – Serviços Hidráulicos`,
+    default: `${siteConfig.name} | Reparo de Vazamentos e Instalações em ${siteConfig.city}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: `Serviços hidráulicos em ${siteConfig.city}: vazamentos, desentupimento, instalações, caixas-d’água e manutenção. Atendimento rápido e orçamento transparente.`,
+  description: `Reparo de vazamentos, conserto hidráulico, desentupimento e instalações em ${siteConfig.city}. Atendimento técnico para casas, empresas e condomínios.`,
   keywords: [
+    `reparo de vazamento em ${siteConfig.city}`,
+    `conserto hidráulico em ${siteConfig.city}`,
     `encanador em ${siteConfig.city}`,
     `serviços hidráulicos em ${siteConfig.city}`,
     `caça vazamentos ${siteConfig.city}`,
@@ -33,27 +35,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://maridodealuguelsp.com.br",
+    url: siteConfig.siteUrl,
     siteName: siteConfig.name,
-    title: `Encanador em ${siteConfig.city} – Serviços Hidráulicos`,
-    description: `Vazamentos, desentupimento, instalações e manutenção hidráulica em ${siteConfig.city}.`,
+    title: `${siteConfig.name} | Reparo de Vazamentos em ${siteConfig.city}`,
+    description: `Reparo de vazamentos, conserto hidráulico e instalações em ${siteConfig.city}.`,
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `Serviços hidráulicos em ${siteConfig.city}`,
+        alt: `${siteConfig.name} - manutenção e instalações`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Encanador em ${siteConfig.city}`,
-    description: `Serviços hidráulicos rápidos e profissionais em ${siteConfig.city}. Orçamento grátis!`,
+    title: siteConfig.name,
+    description: `Reparo de vazamentos, conserto hidráulico e instalações em ${siteConfig.city}.`,
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://maridodealuguelsp.com.br",
+    canonical: siteConfig.siteUrl,
   },
 };
 

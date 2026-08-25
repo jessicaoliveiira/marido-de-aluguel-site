@@ -5,12 +5,15 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          blue: '#1D4ED8',
-          'blue-dark': '#1e3a8a',
-          'blue-light': '#3B82F6',
-          green: '#16A34A',
-          'green-dark': '#15803d',
-          'green-light': '#22C55E'
+          brown: '#6B4528',
+          'brown-dark': '#3F2819',
+          'brown-light': '#A06B42',
+          blue: '#155E75',
+          'blue-dark': '#0C3F52',
+          'blue-light': '#287E98',
+          green: '#D99A18',
+          'green-dark': '#B8740B',
+          'green-light': '#F2BD3B'
         }
       },
       fontFamily: {

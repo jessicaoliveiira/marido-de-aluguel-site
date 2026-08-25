@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Droplets, Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
+import { Wrench, Phone, MapPin } from 'lucide-react';
 import { siteConfig, whatsappLink } from '@/lib/config';
 
 // WhatsApp SVG Icon
@@ -21,7 +21,6 @@ const footerLinks = [
   { href: '/', label: 'Início' },
   { href: '/servicos', label: 'Serviços' },
   { href: '/sobre', label: 'Sobre Nós' },
-  { href: '/avaliacoes', label: 'Avaliações' },
   { href: '/contato', label: 'Contato' }
 ];
 
@@ -34,12 +33,12 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="bg-brand-blue p-2 rounded-lg">
-                <Droplets className="w-5 h-5 text-white" aria-hidden="true" />
+                <Wrench className="w-5 h-5 text-white" aria-hidden="true" />
               </div>
               <div>
                 <span className="font-bold text-white text-lg block">{siteConfig.name}</span>
-                <span className="text-brand-blue-light text-xs">
-                  {siteConfig.city} – {siteConfig.state}
+                <span className="text-brand-green-light text-xs">
+                  {siteConfig.slogan}
                 </span>
               </div>
             </div>

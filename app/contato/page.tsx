@@ -5,10 +5,10 @@ import ContactForm from '@/components/ContactForm';
 import { siteConfig, whatsappLinkFor } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Contato | Encanador em ${siteConfig.city}`,
-  description: `Entre em contato para serviços hidráulicos em ${siteConfig.city}. Orçamento grátis, atendimento rápido por WhatsApp e profissionais de confiança.`,
+  title: `Orçamento para Reparo e Instalações em ${siteConfig.city}`,
+  description: `Fale com a ${siteConfig.name} para reparo de vazamento, conserto hidráulico, desentupimento e instalações em ${siteConfig.city}.`,
   alternates: {
-    canonical: 'https://maridodealuguelsp.com.br/contato'
+    canonical: `${siteConfig.siteUrl}/contato`
   }
 };
 
@@ -71,7 +71,7 @@ export default function ContatoPage() {
           <h1 id="contact-hero-title" className="text-3xl md:text-5xl font-extrabold mb-4">
             Entre em Contato
           </h1>
-          <p className="text-lg text-blue-100 max-w-2xl">
+          <p className="text-lg text-white/80 max-w-2xl">
             Conte o que está acontecendo e solicite seu orçamento gratuito. Respondemos em poucos minutos pelo WhatsApp.
           </p>
         </div>

@@ -1,4 +1,4 @@
-import { siteConfig } from '@/lib/config';
+import { services, siteConfig } from '@/lib/config';
 
 interface SchemaOrgProps {
   pageType?: 'home' | 'service' | 'about' | 'contact';
@@ -7,23 +7,17 @@ interface SchemaOrgProps {
 export default function SchemaOrg({ pageType = 'home' }: SchemaOrgProps) {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': 'https://maridodealuguelsp.com.br',
+    '@type': ['LocalBusiness', 'Plumber'],
+    '@id': siteConfig.siteUrl,
     name: `${siteConfig.name} em ${siteConfig.city}`,
-    description: `Serviços hidráulicos profissionais em ${siteConfig.city}: vazamentos, desentupimento, instalações, caixas-d’água e manutenção preventiva.`,
-    url: 'https://maridodealuguelsp.com.br',
+    description: siteConfig.slogan,
+    url: siteConfig.siteUrl,
     telephone: `+${siteConfig.phone}`,
-    email: siteConfig.email,
     address: {
       '@type': 'PostalAddress',
       addressLocality: siteConfig.city,
       addressRegion: siteConfig.state,
       addressCountry: 'BR'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '-23.5646162',
-      longitude: '-46.6521985'
     },
     openingHoursSpecification: [
       {
@@ -39,7 +33,6 @@ export default function SchemaOrg({ pageType = 'home' }: SchemaOrgProps) {
         closes: '14:00'
       }
     ],
-    sameAs: [siteConfig.instagram, siteConfig.facebook],
     priceRange: '$$',
     areaServed: {
       '@type': 'City',
@@ -47,51 +40,15 @@ export default function SchemaOrg({ pageType = 'home' }: SchemaOrgProps) {
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Serviços Hidráulicos',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Caça Vazamentos'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Desentupimento'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Instalações Hidráulicas'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: "Caixa-d'Água e Bombas"
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Manutenção Hidráulica Preventiva'
-          }
+      name: 'Manutenção e instalações hidráulicas',
+      itemListElement: services.map((service) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: service.title,
+          url: `${siteConfig.siteUrl}/servicos/${service.slug}`
         }
-      ]
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '47',
-      bestRating: '5',
-      worstRating: '1'
+      }))
     }
   };
 

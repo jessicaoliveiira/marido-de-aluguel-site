@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { services, siteConfig } from '@/lib/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://maridodealuguelsp.com.br';
+  const baseUrl = siteConfig.siteUrl;
   const lastModified = new Date();
 
   return [
@@ -24,16 +25,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7
     },
     {
-      url: `${baseUrl}/avaliacoes`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.8
-    },
-    {
       url: `${baseUrl}/contato`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8
-    }
+    },
+    ...services.map((service) => ({
+      url: `${baseUrl}/servicos/${service.slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8
+    }))
   ];
 }

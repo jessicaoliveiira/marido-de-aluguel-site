@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, Award, Users, Clock, Star, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Award, Wrench, Clock, ArrowRight } from 'lucide-react';
 import { siteConfig, whatsappLink } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Sobre | Serviços Hidráulicos em ${siteConfig.city}`,
-  description: `Conheça a equipe da ${siteConfig.name}: especialistas em serviços hidráulicos em ${siteConfig.city}, com atendimento responsável e garantia.`,
+  title: `Sobre | ${siteConfig.name}`,
+  description: siteConfig.slogan,
   alternates: {
-    canonical: 'https://maridodealuguelsp.com.br/sobre'
+    canonical: `${siteConfig.siteUrl}/sobre`
   }
 };
 
@@ -27,10 +27,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 const stats = [
-  { icon: Clock, value: '+10', label: 'Anos de experiência', color: 'text-brand-blue' },
-  { icon: Users, value: '+500', label: 'Clientes atendidos', color: 'text-brand-green' },
-  { icon: Star, value: '5.0', label: 'Nota no Google', color: 'text-yellow-500' },
-  { icon: Award, value: '100%', label: 'Serviços garantidos', color: 'text-purple-600' }
+  { icon: Clock, value: 'Ágil', label: 'Atendimento e retorno', color: 'text-brand-blue' },
+  { icon: Wrench, value: 'Técnico', label: 'Execução cuidadosa', color: 'text-brand-green' },
+  { icon: Award, value: 'Claro', label: 'Orçamento alinhado', color: 'text-brand-brown' }
 ];
 
 const values = [
@@ -49,7 +48,7 @@ export default function SobrePage() {
       <section className="bg-hero text-white py-14 md:py-20" aria-labelledby="about-hero-title">
         <div className="container-custom">
           <nav aria-label="Breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-sm text-blue-200">
+            <ol className="flex items-center gap-2 text-sm text-brand-green-light">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Início
@@ -62,8 +61,8 @@ export default function SobrePage() {
           <h1 id="about-hero-title" className="text-3xl md:text-5xl font-extrabold mb-4">
             Conheça a Nossa Especialidade
           </h1>
-          <p className="text-lg text-blue-100 max-w-2xl">
-            Mais de 10 anos resolvendo problemas hidráulicos em {siteConfig.city} com técnica, transparência e qualidade.
+          <p className="text-lg text-white/80 max-w-2xl">
+            {siteConfig.slogan}
           </p>
         </div>
       </section>
@@ -80,18 +79,8 @@ export default function SobrePage() {
                   <div className="w-28 h-28 bg-white/20 rounded-full flex items-center justify-center mb-4">
                     <span className="text-5xl font-bold text-white">DO</span>
                   </div>
-                  <p className="text-white font-bold text-xl">Hidro Soluções</p>
-                  <p className="text-blue-200 text-sm">Especialistas em Hidráulica</p>
-                </div>
-              </div>
-              {/* Badge */}
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-card p-4 flex items-center gap-3">
-                <div className="bg-yellow-100 p-2 rounded-xl">
-                  <Star className="w-6 h-6 text-yellow-500 fill-yellow-500" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 text-lg leading-none">5.0</p>
-                  <p className="text-xs text-gray-500">+47 avaliações</p>
+                  <p className="text-white font-bold text-xl">{siteConfig.name}</p>
+                  <p className="text-white/80 text-sm">Manutenção e instalações</p>
                 </div>
               </div>
             </div>
@@ -99,24 +88,21 @@ export default function SobrePage() {
             {/* Content */}
             <div>
               <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                Hidro Soluções
+                {siteConfig.name}
               </h2>
-              <p className="text-brand-blue font-semibold mb-6">Serviços Hidráulicos Profissionais em {siteConfig.city}</p>
+              <p className="text-brand-blue font-semibold mb-6">{siteConfig.slogan}</p>
 
               <div className="prose prose-gray max-w-none">
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Somos a <strong>Hidro Soluções</strong>, equipe especializada com mais de{' '}
-                  <strong>10 anos de experiência</strong> em serviços hidráulicos residenciais e comerciais em{' '}
-                  {siteConfig.city} e região metropolitana.
+                  A <strong>{siteConfig.name}</strong> oferece manutenção e instalações para ambientes residenciais,
+                  comerciais e condomínios em {siteConfig.city} e região.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Nossa trajetória começou em manutenção predial e evoluiu com especialização em redes de água e esgoto,
-                  caça vazamentos, desentupimento, instalações e caixas-d’água. Hoje oferecemos atendimento técnico e
-                  de qualidade para quem busca um <strong>encanador de confiança</strong>.
+                  Trabalhamos com planejamento, cuidado na execução e soluções adequadas para as necessidades de cada espaço.
+                  O objetivo é oferecer um atendimento técnico, claro e responsável do início ao fim.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Nosso compromisso é entregar um serviço limpo, pontual e dentro do combinado. Já atendemos{' '}
-                  <strong>mais de 500 imóveis</strong> em {siteConfig.city}, sempre com comunicação clara e respeito ao seu espaço.
+                  Nosso compromisso é entregar um serviço limpo, pontual e dentro do combinado, com respeito ao seu espaço.
                 </p>
               </div>
 
@@ -148,10 +134,10 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-14 bg-gray-50" aria-label="Estatísticas e conquistas">
+      {/* Diferenciais */}
+      <section className="py-14 bg-gray-50" aria-label="Diferenciais do atendimento">
         <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -166,42 +152,20 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* Certifications / Timeline */}
+      {/* Como funciona */}
       <section className="py-16 md:py-24 bg-white" aria-labelledby="experience-title">
         <div className="container-custom max-w-3xl">
           <h2 id="experience-title" className="section-title text-center mb-12">
-            Trajetória Profissional
+            Como trabalhamos
           </h2>
 
           <div className="relative">
             <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200" aria-hidden="true" />
             <div className="flex flex-col gap-8">
               {[
-                {
-                  year: '2014',
-                  title: 'Início da carreira',
-                  desc: 'Início na manutenção predial, com experiência prática em instalações de água e esgoto em imóveis residenciais e comerciais.'
-                },
-                {
-                  year: '2016',
-                  title: 'Especialização técnica',
-                  desc: 'Especialização técnica em instalações hidráulicas, leitura de redes e boas práticas de segurança.'
-                },
-                {
-                  year: '2018',
-                  title: 'Foco em serviços hidráulicos',
-                  desc: 'Passou a atender clientes em São Paulo com foco em vazamentos, desentupimentos, instalações e manutenção.'
-                },
-                {
-                  year: '2022',
-                  title: 'Mais de 300 clientes atendidos',
-                  desc: 'Marco importante com mais de 300 residências atendidas, consolidando a reputação de qualidade e confiança.'
-                },
-                {
-                  year: '2026',
-                  title: 'Hoje: +500 clientes e 5★ no Google',
-                  desc: `Referência em serviços hidráulicos em ${siteConfig.city}, com +47 avaliações 5 estrelas e clientes em toda a cidade.`
-                }
+                { year: '01', title: 'Entenda a necessidade', desc: 'Você explica o que precisa e, se puder, envia fotos ou vídeos do ambiente.' },
+                { year: '02', title: 'Receba a orientação', desc: 'Avaliamos o serviço, alinhamos os detalhes e apresentamos o próximo passo.' },
+                { year: '03', title: 'Execução organizada', desc: 'Realizamos a manutenção ou instalação com técnica e atenção ao seu espaço.' }
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 pl-14 relative">
                   <div
@@ -226,9 +190,9 @@ export default function SobrePage() {
       <section className="bg-hero text-white py-14" aria-labelledby="about-cta-title">
         <div className="container-custom text-center">
           <h2 id="about-cta-title" className="text-2xl md:text-3xl font-bold mb-4">
-            Precisa Resolver um Problema Hidráulico?
+            Precisa de manutenção ou instalação?
           </h2>
-          <p className="text-blue-100 mb-6 max-w-lg mx-auto">
+          <p className="text-white/80 mb-6 max-w-lg mx-auto">
             Entre em contato agora e solicite seu orçamento gratuito. Atendo {siteConfig.city} e região.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

@@ -11,7 +11,6 @@ import {
   Clock,
   DollarSign,
   ShieldCheck,
-  Star,
   ArrowRight,
   Phone,
   Camera,
@@ -19,13 +18,12 @@ import {
   MapPin,
   AlertTriangle
 } from 'lucide-react';
-import TestimonialCard from '@/components/TestimonialCard';
 import FAQSection from '@/components/FAQSection';
-import { siteConfig, whatsappLink, whatsappLinkFor, services, testimonials, faqs } from '@/lib/config';
+import { siteConfig, whatsappLink, whatsappLinkFor, services, faqs } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Encanador em ${siteConfig.city} | Serviços Hidráulicos Rápidos`,
-  description: `Serviços hidráulicos em ${siteConfig.city}: caça vazamentos, desentupimento, instalações, caixas-d’água e manutenção. Orçamento grátis e atendimento rápido.`
+  title: 'Manutenção e Instalações',
+  description: siteConfig.slogan
 };
 
 // WhatsApp SVG Icon
@@ -97,21 +95,17 @@ export default function HomePage() {
         <div className="container-custom py-14 md:py-20 relative z-10">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-              <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" />
-              <span className="text-sm font-medium">+47 avaliações 5 estrelas</span>
-            </div>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.16em] text-brand-green-light">
+              {siteConfig.name}
+            </p>
 
             <h1 id="hero-title" className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
-              Vazamento, entupimento ou{' '}
-              <br className="hidden sm:block" />
-              problema hidráulico?
+              {siteConfig.slogan}
             </h1>
 
-            <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-8 max-w-2xl">
-              Conte o que aconteceu e fale direto com um especialista em {siteConfig.city}. Atendimento ágil,
-              orçamento transparente e execução com garantia.
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl">
+              Fazemos reparos de vazamentos, consertos hidráulicos, desentupimento e instalações em {siteConfig.city}.
+              Conte o que precisa e receba uma orientação para o seu caso.
             </p>
 
             <div className="grid gap-3 sm:grid-cols-3">
@@ -146,7 +140,7 @@ export default function HomePage() {
             </a>
 
             {/* Trust indicators */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-blue-100">
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/80">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-green-400" aria-hidden="true" />
                 Orçamento 100% gratuito
@@ -198,7 +192,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={service.id}
-                  href={`/servicos#${service.slug}`}
+                  href={`/servicos/${service.slug}`}
                   className="card group hover:-translate-y-1 transition-transform duration-300 cursor-pointer"
                   aria-label={`Ver detalhes: ${service.title}`}
                 >
@@ -307,38 +301,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-16 md:py-24 bg-white" aria-labelledby="testimonials-title">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-3">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" aria-hidden="true" />
-              ))}
-            </div>
-            <h2 id="testimonials-title" className="section-title">
-              O Que Nossos Clientes Dizem
-            </h2>
-            <p className="section-subtitle mx-auto">
-              Mais de 47 avaliações com 5 estrelas. Veja a experiência de quem já nos contratou.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {testimonials.slice(0, 6).map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link href="/avaliacoes" className="btn-outline">
-              Ver Todas as Avaliações
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <FAQSection faqs={faqs.slice(0, 5)} />
 
@@ -348,7 +310,7 @@ export default function HomePage() {
           <h2 id="cta-title" className="text-3xl md:text-4xl font-extrabold mb-4">
             Precisa de um Encanador Agora?
           </h2>
-          <p className="text-lg text-blue-100 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
             Chame no WhatsApp, explique o problema e receba uma orientação inicial em minutos. Atendemos {siteConfig.city} e região.
           </p>
           <a
